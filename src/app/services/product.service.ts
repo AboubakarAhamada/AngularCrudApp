@@ -12,12 +12,11 @@ export class ProductService {
   host:string = environment.host;
   constructor(private http: HttpClient) { }
 
+  getProductById(id: number):Observable<IProduct>{
+    return this.http.get<IProduct>(this.host+"/products/"+id);
+  }
   getAllProducts(): Observable<IProduct[]>{
     return this.http.get<IProduct[]>(this.host+"/products");
-  }
-
-  getSelectedProducts(): Observable<IProduct[]>{
-    return this.http.get<IProduct[]>(this.host+"/products?selected=true");
   }
 
   getAvailableProducts(): Observable<IProduct[]>{
@@ -28,7 +27,16 @@ export class ProductService {
     return this.http.get<IProduct[]>(this.host+"/products?name_like="+keyword);
   }
 
+  saveProduct(product: IProduct): Observable<IProduct> {
+    return this.http.post<IProduct>(this.host+"/products", product);
+  }
+
   deleteProduct(product: IProduct): Observable<void> {
     return this.http.delete<void>(this.host+"/products/"+product.id);
   }
+
+  updateProduct(product: IProduct): Observable<void>{
+    return this.http.put<void>(this.host+"/products/"+product.id, product);
+  }
+
 }

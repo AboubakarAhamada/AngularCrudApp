@@ -22,10 +22,6 @@ export class ProductsComponent implements OnInit {
     this.products$= this.productService.getAllProducts();
   }
 
-  onGetSelectedProducts(){
-    this.products$ = this.productService.getSelectedProducts();
-  }
-
   onGetAvailableProducts(){
     this.products$ = this.productService.getAvailableProducts();
   }
@@ -47,6 +43,10 @@ export class ProductsComponent implements OnInit {
 
   onAddProduct(){
     this.router.navigateByUrl("/add-product");
+  }
+
+  onEditProduct(p: IProduct){
+    this.router.navigateByUrl("editProduct/"+p.id);
   }
 
 }

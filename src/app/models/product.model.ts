@@ -4,6 +4,5 @@ export interface IProduct {
   name: string,
   price: number,
   quantity: number,
-  selected : boolean,
-  available: true
+  available: boolean
 }

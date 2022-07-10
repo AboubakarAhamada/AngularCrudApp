@@ -1,0 +1,27 @@
+<div class="container">
+  <br>
+<mat-card>
+  <mat-card-title>Trouver ici le détail devotre produit <i> {{product?.name}} </i></mat-card-title>
+
+  <mat-card-content>
+    <table>
+      <tr>
+        <td>Product name : </td> <td>{{product?.name}}</td>
+      </tr>
+      <tr>
+        <td>Unity price : </td> <td>{{product?.price}}</td>
+      </tr>
+      <tr>
+        <td>Quantity : </td> <td>{{product?.quantity}}</td>
+      </tr>
+      <tr>
+        <td>Availablity state: </td> <td>{{product?.available}}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button routerLink="/products" class="btn btn-outline-primary">Back</button>
+  </mat-card-actions>
+</mat-card>
+</div>

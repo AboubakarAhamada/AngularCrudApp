@@ -1,6 +1,5 @@
 <div class="nav ml-auto bg-light">
 <button (click)="onGetAllProducts()" class="btn btn-outline-info btn-sm">All products</button>
-<button (click)="onGetSelectedProducts()" class="btn btn-outline-info btn-sm">Selected products</button>
 <button (click)="onGetAvailableProducts()" class="btn btn-outline-info btn-sm">Available products</button>
 <button (click)="onAddProduct()" class="btn btn-outline-info btn-sm">+ Add Product</button>
 
@@ -18,7 +17,7 @@
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Price</th>
-      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
       <th scope="col">Available</th>
       <th scope="col">Action</th>
     </tr>
@@ -31,8 +30,18 @@
     <td>{{product.quantity}}</td>
     <td>{{product.available}}</td>
     <td>
-      <button class="btn btn-warning"><span class="fa fa-edit"></span></button>
-      <button class="btn btn-danger" (click)="onDeleteProduct(product)"><span class="fa fa-trash"></span></button>
+      <button class="btn btn-outline-info"
+          [routerLink]="['/show-product', product.id]">
+          <span class="fa fa-link"></span>
+      </button>
+      <button class="btn btn-outline-warning"
+        [routerLink]="['/edit-product', product.id]">
+       <span class="fa fa-edit"></span>
+      </button>
+      <button class="btn btn-outline-danger"
+        (click)="onDeleteProduct(product)">
+        <span class="fa fa-trash"></span>
+    </button>
     </td>
   </tr>
   </tbody>

@@ -5,32 +5,70 @@
       "name": "Computer",
       "price": 4300,
       "quantity": 50,
-      "selected": true,
-      "available":true
+      "available": true
     },
     {
       "id": 2,
       "name": "Tablette",
       "price": 2000,
       "quantity": 50,
-      "selected": true,
-      "available":false
+      "available": false
     },
     {
       "id": 3,
-      "name": "Print",
-      "price": 1300,
+      "name": "Print Ultra Laser",
+      "price": 1350,
       "quantity": 50,
-      "selected": true,
-      "available":true
+      "available": true
     },
     {
       "id": 4,
       "name": "Smart phone",
       "price": 2300,
       "quantity": 50,
-      "selected": false,
       "available": true
+    },
+    {
+      "id": 7,
+      "name": "New product",
+      "price": 2,
+      "quantity": 1,
+      "available": false
+    },
+    {
+      "id": 8,
+      "name": "Apple Watch",
+      "price": 5500,
+      "quantity": 12,
+      "available": true
+    },
+    {
+      "id": 9,
+      "name": "WXDED",
+      "price": 9,
+      "quantity": 22,
+      "available": false
+    },
+    {
+      "name": "p3",
+      "price": 5,
+      "quantity": 7,
+      "available": true,
+      "id": 10
+    },
+    {
+      "name": "p4",
+      "price": 4,
+      "quantity": 7,
+      "available": false,
+      "id": 11
+    },
+    {
+      "name": "p5",
+      "price": 450,
+      "quantity": 12,
+      "available": true,
+      "id": 12
     }
   ]
 }
