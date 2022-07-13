@@ -62,13 +62,6 @@
       "quantity": 7,
       "available": false,
       "id": 11
-    },
-    {
-      "name": "p5",
-      "price": 450,
-      "quantity": 12,
-      "available": true,
-      "id": 12
     }
   ]
 }
