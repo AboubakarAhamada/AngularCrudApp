@@ -13,8 +13,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
