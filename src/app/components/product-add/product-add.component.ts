@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductAddComponent implements OnInit {
 
   productFormGroup!: FormGroup;
+  submitted: boolean = false;
 
   constructor(private productService: ProductService,
      private fb: FormBuilder,
@@ -18,14 +19,16 @@ export class ProductAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.productFormGroup = this.fb.group({
-      name : ["", Validators.required],
-      price: [0, Validators.required],
-      quantity: [0, Validators.required],
+      name : ["", [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      price: [0, [Validators.required, Validators.min(5)]],
+      quantity: [0, [Validators.required, Validators.min(1)]],
       available: [false, Validators.required],
     });
   }
 
   onSaveProduct(){
+    this.submitted = true;
+    console.log(this.productFormGroup)
     if(this.productFormGroup.invalid) return;
     this.productService.saveProduct(this.productFormGroup?.value)
     .subscribe(data => {

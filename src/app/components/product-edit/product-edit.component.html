@@ -7,15 +7,37 @@
   </div>
   <div class="mb-3">
     <label class="form-label">Product name</label>
-    <input type="text" class="form-control" formControlName="name">
+    <input type="text" class="form-control" formControlName="name"
+    [ngClass]="{'is-invalid': submitted && productFormGroup.controls.name.errors}">
+    <span class = "error-message" *ngIf="submitted && productFormGroup.controls.name.errors?.required">
+      This field is required.
+    </span>
+    <span class = "error-message" *ngIf="submitted && (productFormGroup.controls.name.errors?.minlength ||
+    productFormGroup.controls.name.errors?.maxlength)">
+      Product name must have between 3 and 50 characters.
+    </span>
   </div>
   <div class="mb-3">
     <label class="form-label">Price</label>
-    <input type="number" min="1" class="form-control" formControlName="price">
+    <input type="number" class="form-control" formControlName="price"
+    [ngClass]="{'is-invalid': submitted && productFormGroup.controls.price.errors}">
+    <span class = "error-message" *ngIf="submitted && productFormGroup.controls.price.errors?.required">
+      This field is required.
+    </span>
+    <span class = "error-message" *ngIf="submitted && productFormGroup.controls.price.errors?.min">
+     You can't set a price less than 5 DH.
+    </span>
   </div>
   <div class="mb-3">
     <label class="form-label">Quanrity</label>
-    <input type="number" min="1" class="form-control" formControlName="quantity">
+    <input type="number" class="form-control" formControlName="quantity"
+    [ngClass]="{'is-invalid': submitted && productFormGroup.controls.quantity.errors}">
+    <span class = "error-message" *ngIf="submitted && productFormGroup.controls.quantity.errors?.required">
+      This field is required.
+    </span>
+     <span class = "error-message" *ngIf="submitted && productFormGroup.controls.quantity.errors?.min">
+      The minimal quantity allowed is 1.
+    </span>
   </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" formControlName="available">
