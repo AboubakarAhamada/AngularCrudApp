@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ErrorsMessagesService } from 'src/app/services/errors-messages.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -12,8 +13,13 @@ export class ProductAddComponent implements OnInit {
 
   productFormGroup!: FormGroup;
   submitted: boolean = false;
+  fieldRequiredMessage? : String;
+  productNameErrorMessage?: String;
+  priceErrorMessage ?: String;
+  quantityErrorMessage?: String;
 
   constructor(private productService: ProductService,
+     private errMsgService: ErrorsMessagesService,
      private fb: FormBuilder,
      private router: Router) { }
 
@@ -24,6 +30,13 @@ export class ProductAddComponent implements OnInit {
       quantity: [0, [Validators.required, Validators.min(1)]],
       available: [false, Validators.required],
     });
+
+    this.fieldRequiredMessage = this.errMsgService.getFiledRequiredMessage();
+    this.fieldRequiredMessage = this.errMsgService.getFiledRequiredMessage();
+     this.productNameErrorMessage = this.errMsgService.getProductNameErrorMessage();
+     this.priceErrorMessage = this.errMsgService.getPriceErrorMessage();
+     this.quantityErrorMessage = this.errMsgService.getQuantityErrorMessage();
+
   }
 
   onSaveProduct(){

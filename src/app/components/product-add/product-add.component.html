@@ -6,11 +6,11 @@
     <input type="text" class="form-control" formControlName="name" placeholder="Product name"
      [ngClass]="{'is-invalid': submitted && productFormGroup.controls.name.errors}">
     <span class = "error-message" *ngIf="submitted && productFormGroup.controls.name.errors?.required">
-      This field is required.
+      {{fieldRequiredMessage}}
     </span>
     <span class = "error-message" *ngIf="submitted && (productFormGroup.controls.name.errors?.minlength ||
     productFormGroup.controls.name.errors?.maxlength)">
-      Product name must have between 3 and 50 characters.
+      {{productNameErrorMessage}}
     </span>
   </div>
   <div class="mb-3">
@@ -18,10 +18,10 @@
     <input type="number" class="form-control" formControlName="price"
      [ngClass]="{'is-invalid': submitted && productFormGroup.controls.price.errors}">
      <span class = "error-message" *ngIf="submitted && productFormGroup.controls.price.errors?.required">
-      This field is required.
+      {{fieldRequiredMessage}}
     </span>
      <span class = "error-message" *ngIf="submitted && productFormGroup.controls.price.errors?.min">
-      You can't set a price less than 5 DH.
+      {{priceErrorMessage}}
     </span>
   </div>
   <div class="mb-3">
@@ -29,10 +29,10 @@
     <input type="number" class="form-control" formControlName="quantity"
     [ngClass]="{'is-invalid': submitted && productFormGroup.controls.quantity.errors}">
     <span class = "error-message" *ngIf="submitted && productFormGroup.controls.quantity.errors?.required">
-      This field is required.
+      {{fieldRequiredMessage}}
     </span>
      <span class = "error-message" *ngIf="submitted && productFormGroup.controls.quantity.errors?.min">
-      The minimal quantity allowed is 1.
+      {{quantityErrorMessage}}
     </span>
   </div>
   <div class="mb-3 form-check">
