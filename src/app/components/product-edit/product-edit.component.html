@@ -30,12 +30,13 @@
   </div>
   <div class="mb-3">
     <label class="form-label">Quanrity</label>
-    <input type="number" class="form-control" formControlName="quantity"
+    <input type="number" pattern="[0-9]" class="form-control" formControlName="quantity"
     [ngClass]="{'is-invalid': submitted && productFormGroup.controls.quantity.errors}">
     <span class = "error-message" *ngIf="submitted && productFormGroup.controls.quantity.errors?.required">
       {{fieldRequiredMessage}}
     </span>
-     <span class = "error-message" *ngIf="submitted && productFormGroup.controls.quantity.errors?.min">
+     <span class = "error-message" *ngIf="submitted && (productFormGroup.controls.quantity.errors?.min ||
+     productFormGroup.controls.quantity.errors?.pattern)">
       {{quantityErrorMessage}}
     </span>
   </div>
