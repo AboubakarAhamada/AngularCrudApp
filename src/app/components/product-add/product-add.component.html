@@ -26,7 +26,7 @@
   </div>
   <div class="mb-3">
     <label class="form-label">Quantity</label>
-    <input type="number" pattern="[0-9]" class="form-control" formControlName="quantity"
+    <input type="number" pattern='[0-9]+' class="form-control" formControlName="quantity"
     [ngClass]="{'is-invalid': submitted && productFormGroup.controls.quantity.errors}">
     <span class = "error-message" *ngIf="submitted && productFormGroup.controls.quantity.errors?.required">
       {{fieldRequiredMessage}}
